@@ -39,8 +39,8 @@ const Navbar = () => {
           })}
         </ul>
         <div className='sm:hidden flex flex-1 justify-end items-center'>
-            <img className='w-[28px] h-[28px] object-contain cursor-pointer' alt="menu" src={menu}
-            onClick={() => setActive(!toggle)}
+            <img className='w-[28px] h-[28px] object-contain cursor-pointer' alt="menu" src={toggle ? menu : close}
+            onClick={() => setToggle(!toggle)}
             />
         </div>
       </div>
