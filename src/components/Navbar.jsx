@@ -20,7 +20,7 @@ const Navbar = () => {
         }
         >
         <img src={logo} alt={logo} className='w-9 h-9 object-contain'/>
-        <p className='text-white text-[18px] font-bold cursor-pointer'>Danner<span className='sm:block hidden'>|Tech</span></p>
+        <p className='text-white text-[18px] font-bold cursor-pointer flex'>Danner &nbsp;<span className='sm:block hidden'>| Tech</span></p>
         </Link>
         <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((link) => {
@@ -42,6 +42,25 @@ const Navbar = () => {
             <img className='w-[28px] h-[28px] object-contain cursor-pointer' alt="menu" src={toggle ? menu : close}
             onClick={() => setToggle(!toggle)}
             />
+            <div className={`${!toggle ? 'flex' : 'hidden'} p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w[140px] z-10 rounded-xl`}>
+            <ul className='list-none flex flex-col gap-4 items-start justify-end'>
+          {navLinks.map((link) => {
+            return (
+              <li key={link.id}
+              className={`${active === link.title ? "text-white" : "text-secondary"} font-poppins font-medium curosr-pointer text-[16px]`} 
+              onClick={() => {
+                setActive(link.title);
+                setToggle(!toggle);
+              }}
+              >
+                <a href={`#${link.id}`}>
+                  {link.title}
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+            </div>
         </div>
       </div>
     </nav>
